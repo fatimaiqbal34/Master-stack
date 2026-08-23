@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fatima Iqbal — Master AI Stack</title>
+<meta name="description" content="A 9-stage journey through the AI stack: Python, Machine Learning, Deep Learning, Generative AI, RAG, AI Engineering, MCP, Agents, and Deployment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B10;
+    --surface:#131319;
+    --surface-2:#1A1A23;
+    --line:#26262f;
+    --text:#F5F5F7;
+    --muted:#8A8A99;
+    --violet:#8B5CF6;
+    --violet-soft:rgba(139,92,246,0.12);
+    --cyan:#22D3EE;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:100;
+    backdrop-filter: blur(12px);
+    background:rgba(11,11,16,0.75);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{font-family:var(--display); font-weight:700; font-size:1.05rem; letter-spacing:-0.01em;}
+  .brand span{color:var(--violet);}
+  .nav-links{display:flex; gap:32px; font-size:0.9rem; color:var(--muted);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    background:var(--violet); color:#fff; padding:9px 18px; border-radius:8px;
+    font-size:0.85rem; font-weight:600; transition:background .2s;
+  }
+  .nav-cta:hover{background:#7C4FE0;}
+  .nav-mobile-hide{display:flex;}
+  @media (max-width:720px){ .nav-mobile-hide{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 100px;
+    position:relative;
+    background:
+      radial-gradient(600px 400px at 15% 10%, var(--violet-soft), transparent 60%),
+      radial-gradient(500px 350px at 90% 30%, rgba(34,211,238,0.08), transparent 60%);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:0.78rem; color:var(--cyan);
+    background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25);
+    padding:6px 12px; border-radius:100px; margin-bottom:28px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--cyan); animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+
+  .hero h1{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    line-height:1.05; letter-spacing:-0.02em;
+    max-width:14ch;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(90deg, var(--violet), var(--cyan));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .hero p.lead{
+    margin-top:24px; font-size:1.15rem; color:var(--muted); max-width:52ch;
+  }
+  .hero-actions{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;}
+  .btn{
+    padding:13px 24px; border-radius:9px; font-weight:600; font-size:0.92rem;
+    display:inline-flex; align-items:center; gap:8px; transition:all .2s;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--violet); color:#fff;}
+  .btn-primary:hover{background:#7C4FE0; transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--violet); background:var(--violet-soft);}
+
+  .hero-stats{
+    display:flex; gap:48px; margin-top:64px; padding-top:32px; border-top:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .stat b{display:block; font-family:var(--display); font-size:1.8rem; color:var(--violet);}
+  .stat span{font-size:0.82rem; color:var(--muted);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:96px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-tag{
+    font-family:var(--mono); font-size:0.78rem; color:var(--violet);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; display:block;
+  }
+  .section-head h2{
+    font-family:var(--display); font-weight:600; font-size:clamp(1.7rem,3.4vw,2.4rem);
+    letter-spacing:-0.01em;
+  }
+  .section-head p{margin-top:14px; color:var(--muted); font-size:1.02rem;}
+
+  /* ---------- STACK TIMELINE (signature element) ---------- */
+  .timeline{position:relative;}
+  .timeline::before{
+    content:''; position:absolute; left:27px; top:8px; bottom:8px; width:1px;
+    background:linear-gradient(var(--violet), var(--cyan));
+    opacity:0.35;
+  }
+  .stage{
+    position:relative; display:flex; gap:24px; padding:20px 0;
+    cursor:pointer;
+  }
+  .stage-num{
+    font-family:var(--mono); font-size:0.85rem; color:var(--bg); font-weight:500;
+    background:var(--surface-2); border:1px solid var(--line);
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; z-index:2; color:var(--muted);
+    transition:all .25s;
+  }
+  .stage.active .stage-num{
+    background:var(--violet); border-color:var(--violet); color:#fff;
+  }
+  .stage-body{flex:1; padding-top:8px; border-bottom:1px solid var(--line);}
+  .stage:last-child .stage-body{border-bottom:none;}
+  .stage-top{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .stage-title{font-family:var(--display); font-weight:600; font-size:1.15rem;}
+  .stage-tag{font-family:var(--mono); font-size:0.72rem; color:var(--muted); white-space:nowrap;}
+  .stage-detail{
+    max-height:0; overflow:hidden; transition:max-height .35s ease, opacity .3s ease, margin .3s ease;
+    opacity:0;
+  }
+  .stage.active .stage-detail{max-height:200px; opacity:1; margin-top:12px;}
+  .stage-detail p{color:var(--muted); font-size:0.95rem; padding-bottom:6px;}
+  .stage-chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
+  .chip{
+    font-family:var(--mono); font-size:0.72rem; color:var(--cyan);
+    background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.2);
+    padding:4px 10px; border-radius:6px;
+  }
+
+  /* ---------- LIVE DEMO CARD ---------- */
+  .demo-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:48px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px;
+    align-items:center;
+    position:relative; overflow:hidden;
+  }
+  .demo-card::before{
+    content:''; position:absolute; top:-40%; right:-20%; width:60%; height:180%;
+    background:radial-gradient(circle, var(--violet-soft), transparent 70%);
+    pointer-events:none;
+  }
+  @media (max-width:760px){ .demo-card{grid-template-columns:1fr; padding:32px 24px;} }
+  .demo-copy h3{font-family:var(--display); font-size:1.6rem; margin-bottom:14px;}
+  .demo-copy p{color:var(--muted); margin-bottom:24px;}
+  .demo-list{list-style:none; margin-bottom:28px;}
+  .demo-list li{
+    display:flex; align-items:center; gap:10px; font-size:0.92rem; color:var(--text);
+    padding:8px 0; border-bottom:1px solid var(--line);
+  }
+  .demo-list li:last-child{border-bottom:none;}
+  .demo-list li::before{content:'→'; color:var(--cyan); font-family:var(--mono);}
+  .demo-visual{
+    background:var(--surface-2); border:1px solid var(--line); border-radius:14px;
+    padding:22px; font-family:var(--mono); font-size:0.82rem; color:var(--muted);
+  }
+  .demo-visual .win-dots{display:flex; gap:6px; margin-bottom:16px;}
+  .win-dots span{width:9px; height:9px; border-radius:50%; background:var(--line);}
+  .demo-visual .line{margin-bottom:8px;}
+  .demo-visual .prompt{color:var(--cyan);}
+  .demo-visual .out{color:var(--text);}
+
+  /* ---------- SKILLS GRID ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  }
+  @media (max-width:720px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-cell{
+    background:var(--surface); padding:28px 24px; transition:background .2s;
+  }
+  .skill-cell:hover{background:var(--surface-2);}
+  .skill-cell .k{font-family:var(--mono); font-size:0.75rem; color:var(--violet); margin-bottom:10px; display:block;}
+  .skill-cell h4{font-family:var(--display); font-size:1.02rem; margin-bottom:6px;}
+  .skill-cell p{font-size:0.85rem; color:var(--muted);}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:56px 0 32px;}
+  .footer-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:40px;}
+  .footer-brand h3{font-family:var(--display); font-size:1.3rem; margin-bottom:8px;}
+  .footer-brand p{color:var(--muted); font-size:0.9rem; max-width:38ch;}
+  .footer-links{display:flex; gap:40px; flex-wrap:wrap;}
+  .footer-col span{font-family:var(--mono); font-size:0.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:14px;}
+  .footer-col a{display:block; font-size:0.9rem; color:var(--text); margin-bottom:10px; opacity:0.85;}
+  .footer-col a:hover{opacity:1; color:var(--cyan);}
+  .footer-bottom{
+    padding-top:24px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; color:var(--muted); font-size:0.82rem; flex-wrap:wrap; gap:12px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Fatima<span>.</span>Iqbal</a>
+    <div class="nav-links nav-mobile-hide">
+      <a href="#stack">The Stack</a>
+      <a href="#demo">Live Agents</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://master-ai-stack-6ydzxmrtpvfhd55vjlpx8m.streamlit.app" target="_blank" rel="noopener">Open App →</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> ASSIGNMENT · WEEK 1 · AI INTERNSHIP</div>
+    <h1>Nine stages of the <span class="grad">AI stack</span>, built and shipped.</h1>
+    <p class="lead">From Python fundamentals to a deployed, tool-using AI agent — this is a working record of every layer of the modern AI stack, built one module at a time.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://master-ai-stack-6ydzxmrtpvfhd55vjlpx8m.streamlit.app" target="_blank" rel="noopener">Try the live agents ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/fatimaiqbal34/master-ai-stack" target="_blank" rel="noopener">View source on GitHub</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>9</b><span>stack layers completed</span></div>
+      <div class="stat"><b>20+</b><span>scripts &amp; agents built</span></div>
+      <div class="stat"><b>3</b><span>agents live in production</span></div>
+      <div class="stat"><b>100%</b><span>free / open tooling</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">The Curriculum</span>
+      <h2>Every layer, in the order it was learned.</h2>
+      <p>Each stage builds on the last — click a stage to see what was actually built.</p>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <!-- stages injected by JS -->
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Live Demo</span>
+      <h2>The stack, running in production.</h2>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-copy">
+        <h3>🤖 My AI Agents</h3>
+        <p>A deployed Streamlit app combining three agents built during this project — running on the Groq API, live on the open web.</p>
+        <ul class="demo-list">
+          <li>Project-to-Blog Agent — turns rough notes into a polished post</li>
+          <li>Reasoning Agent — decides on its own when to call a tool</li>
+          <li>Chat Assistant — holds context across a full conversation</li>
+        </ul>
+        <a class="btn btn-primary" href="https://master-ai-stack-6ydzxmrtpvfhd55vjlpx8m.streamlit.app" target="_blank" rel="noopener">Open the live app ↗</a>
+      </div>
+      <div class="demo-visual">
+        <div class="win-dots"><span></span><span></span><span></span></div>
+        <div class="line prompt">You: What is 245 * 12?</div>
+        <div class="line">[Agent decided to use: calculate]</div>
+        <div class="line out">AI: 245 × 12 = 2,940</div>
+        <div class="line" style="margin-top:14px" class="prompt">You: capital of Italy?</div>
+        <div class="line out">AI: Rome — no tool needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Toolbox</span>
+      <h2>What's under the hood.</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cell"><span class="k">LANG</span><h4>Python</h4><p>Core scripting for every stage of the stack</p></div>
+      <div class="skill-cell"><span class="k">API</span><h4>Groq API</h4><p>Fast, free LLM inference for all agents</p></div>
+      <div class="skill-cell"><span class="k">ML</span><h4>Scikit-learn</h4><p>Regression, classification, model evaluation</p></div>
+      <div class="skill-cell"><span class="k">DL</span><h4>PyTorch</h4><p>Neural networks from first principles</p></div>
+      <div class="skill-cell"><span class="k">NLP</span><h4>Embeddings &amp; RAG</h4><p>Semantic search over custom documents</p></div>
+      <div class="skill-cell"><span class="k">PROTO</span><h4>MCP</h4><p>Standardized tool-calling for AI systems</p></div>
+      <div class="skill-cell"><span class="k">AGENTS</span><h4>Tool-using Agents</h4><p>Function calling &amp; autonomous decisions</p></div>
+      <div class="skill-cell"><span class="k">DEPLOY</span><h4>Streamlit Cloud</h4><p>Free hosting for live, shareable apps</p></div>
+      <div class="skill-cell"><span class="k">VCS</span><h4>Git &amp; GitHub</h4><p>Version control for the entire project</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Let's talk AI.</h3>
+        <p>Open to internship opportunities, collaboration, and anything AI-shaped.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span>Project</span>
+          <a href="https://master-ai-stack-6ydzxmrtpvfhd55vjlpx8m.streamlit.app" target="_blank" rel="noopener">Live App</a>
+          <a href="https://github.com/fatimaiqbal34/master-ai-stack" target="_blank" rel="noopener">Source Code</a>
+        </div>
+        <div class="footer-col">
+          <span>Elsewhere</span>
+          <a href="https://github.com/fatimaiqbal34" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://fatimaiqbal34.github.io/my-portfolio/" target="_blank" rel="noopener">Portfolio</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fatima Iqbal. All rights reserved.</span>
+      <span>Built while mastering the AI stack.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const stages = [
+    { n:"01", title:"Python Fundamentals", tag:"01-python", desc:"Variables, data structures, functions, loops, and error handling — the base every later stage runs on.", chips:["variables","functions","loops","try/except"] },
+    { n:"02", title:"Machine Learning", tag:"02-machine-learning", desc:"Trained regression and classification models from scratch, then learned why train/test splits matter.", chips:["regression","classification","scikit-learn"] },
+    { n:"03", title:"Deep Learning", tag:"03-deep-learning", desc:"Built a neural network in PyTorch and watched loss drop across a real training loop.", chips:["PyTorch","neural nets","backprop"] },
+    { n:"04", title:"Generative AI", tag:"04-generative-ai", desc:"Explored tokens and embeddings — how raw text becomes numbers a model can reason over.", chips:["tokens","embeddings","similarity"] },
+    { n:"05", title:"RAG", tag:"05-rag", desc:"Built a retrieval-augmented system that answers only from a given set of documents.", chips:["retrieval","semantic search","grounded answers"] },
+    { n:"06", title:"AI Engineering", tag:"06-ai-engineering", desc:"Structured JSON outputs and automated evals — the patterns that make AI apps production-ready.", chips:["structured output","evals","reliability"] },
+    { n:"07", title:"MCP", tag:"07-mcp", desc:"Built a Model Context Protocol server and client — standardized tool access for AI systems.", chips:["MCP server","tool discovery","protocol"] },
+    { n:"08", title:"AI Agents", tag:"08-ai-agents", desc:"Combined everything into agents that decide, on their own, when and how to use a tool.", chips:["tool calling","reasoning","autonomy"] },
+    { n:"09", title:"Deployment", tag:"09-deployment", desc:"Shipped a multi-agent app to the open web — free, live, and shareable with anyone.", chips:["Streamlit Cloud","CI from Git","live demo"] },
+  ];
+
+  const tl = document.getElementById('timeline');
+  stages.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'stage' + (i === 0 ? ' active' : '');
+    el.innerHTML = `
+      <div class="stage-num">${s.n}</div>
+      <div class="stage-body">
+        <div class="stage-top">
+          <div class="stage-title">${s.title}</div>
+          <div class="stage-tag">${s.tag}</div>
+        </div>
+        <div class="stage-detail">
+          <p>${s.desc}</p>
+          <div class="stage-chips">${s.chips.map(c => `<span class="chip">${c}</span>`).join('')}</div>
+        </div>
+      </div>
+    `;
+    el.addEventListener('click', () => {
+      const wasActive = el.classList.contains('active');
+      document.querySelectorAll('.stage').forEach(x => x.classList.remove('active'));
+      if (!wasActive) el.classList.add('active');
+    });
+    tl.appendChild(el);
+  });
+</script>
+
+</body>
+</html>
