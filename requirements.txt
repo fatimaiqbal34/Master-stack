@@ -1,0 +1,11 @@
+streamlit
+groq
+python-dotenv
+scikit-learn
+numpy
+pandas
+torch
+tiktoken
+sentence-transformers
+duckduckgo-search
+mcp
