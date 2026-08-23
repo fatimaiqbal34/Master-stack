@@ -8,7 +8,11 @@ from dotenv import load_dotenv, find_dotenv
 from groq import Groq
 
 load_dotenv(find_dotenv())
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+# Try environment variable first (for local development),
+# fall back to Streamlit secrets (for cloud deployment)
+api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY")
+client = Groq(api_key=api_key)
 
 st.set_page_config(page_title="My AI Agents", page_icon="🤖", layout="centered")
 
