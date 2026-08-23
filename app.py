@@ -1,6 +1,4 @@
 # app.py
-# Main website combining all agents into one app
-
 import os
 import json
 import streamlit as st
@@ -8,34 +6,89 @@ from dotenv import load_dotenv, find_dotenv
 from groq import Groq
 
 load_dotenv(find_dotenv())
-
-# Try environment variable first (for local development),
-# fall back to Streamlit secrets (for cloud deployment)
 api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY")
 client = Groq(api_key=api_key)
 
-st.set_page_config(page_title="My AI Agents", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Fatima Iqbal | AI Agents", page_icon="🤖", layout="wide")
+
+# ---------- CUSTOM CSS ----------
+st.markdown("""
+<style>
+    .main-header {
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+    }
+    .main-header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #7C3AED, #A78BFA);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.3rem;
+    }
+    .main-header p {
+        color: #9CA3AF;
+        font-size: 1.1rem;
+    }
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        justify-content: center;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: #1A1D24;
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: 1px solid #2D3139;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #7C3AED !important;
+        border: 1px solid #7C3AED !important;
+    }
+    div[data-testid="stSidebarUserContent"] {
+        padding-top: 2rem;
+    }
+    .footer {
+        text-align: center;
+        color: #6B7280;
+        padding: 2rem 0 1rem 0;
+        font-size: 0.85rem;
+    }
+    .stButton button {
+        background-color: #7C3AED;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .stButton button:hover {
+        background-color: #6D28D9;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # ---------- SIDEBAR ----------
 with st.sidebar:
-    st.header("👋 About Me")
+    st.markdown("### 👋 About Me")
     st.write("Hi, I'm **Fatima Iqbal** — learning to build AI-powered applications from scratch.")
-    st.write("This site showcases the AI agents I built while mastering the AI stack.")
+    st.write("This site showcases the AI agents I built while mastering the AI stack: Python, ML, deep learning, RAG, MCP, and agents.")
     st.markdown("---")
-    st.write("🔗 **Links**")
-    st.write("[GitHub](https://github.com/fatimaiqbal34)")
+    st.markdown("### 🔗 Links")
+    st.markdown("[🐙 GitHub](https://github.com/fatimaiqbal34)")
     st.markdown("---")
     st.caption("Built with Python, Groq API & Streamlit")
 
-# ---------- MAIN PAGE ----------
-st.title("🤖 My AI Agents")
-st.write("A collection of AI tools I built while learning the AI stack.")
+# ---------- HERO HEADER ----------
+st.markdown("""
+<div class="main-header">
+    <h1>🤖 My AI Agents</h1>
+    <p>A collection of AI tools built while mastering the AI stack</p>
+</div>
+""", unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["📝 Blog Writer", "🧮 Reasoning Agent", "💬 Chat Assistant"])
+tab1, tab2, tab3 = st.tabs(["📝  Blog Writer", "🧮  Reasoning Agent", "💬  Chat Assistant"])
 
 # ---------- TAB 1: Blog Writer ----------
 with tab1:
-    st.header("Project-to-Blog Agent")
+    st.subheader("Project-to-Blog Agent")
     st.write("Turn your rough project notes into a polished blog post.")
 
     BLOG_SYSTEM_PROMPT = """You are a professional technical writer who turns a developer's 
@@ -47,9 +100,10 @@ Never invent specifics. If detail is missing, keep that part general.
 Output in Markdown: a title, then the post.
 """
 
-    notes = st.text_area("Tell me about your project:", height=200, key="blog_notes")
+    notes = st.text_area("Tell me about your project:", height=180, key="blog_notes",
+                          placeholder="e.g. I built a chatbot using Python and the Groq API...")
 
-    if st.button("Generate Blog Post", key="blog_btn"):
+    if st.button("✨ Generate Blog Post", key="blog_btn"):
         if notes.strip() == "":
             st.warning("Please write something about your project first.")
         else:
@@ -68,7 +122,7 @@ Output in Markdown: a title, then the post.
 
 # ---------- TAB 2: Reasoning Agent ----------
 with tab2:
-    st.header("Reasoning Agent")
+    st.subheader("Reasoning Agent")
     st.write("Ask a question — this agent decides on its own whether it needs a tool.")
 
     def calculate(expression):
@@ -108,9 +162,9 @@ with tab2:
     ]
     available_functions = {"calculate": calculate, "word_count": word_count}
 
-    question = st.text_input("Ask something:", key="reasoning_q")
+    question = st.text_input("Ask something:", key="reasoning_q", placeholder="e.g. What is 245 * 12?")
 
-    if st.button("Ask", key="reasoning_btn"):
+    if st.button("🚀 Ask", key="reasoning_btn"):
         if question.strip() == "":
             st.warning("Type a question first.")
         else:
@@ -139,13 +193,13 @@ with tab2:
                         model="openai/gpt-oss-120b",
                         messages=messages,
                     )
-                    st.write(final.choices[0].message.content)
+                    st.success(final.choices[0].message.content)
                 else:
-                    st.write(msg.content)
+                    st.success(msg.content)
 
-# ---------- TAB 3: Chat Assistant (with memory) ----------
+# ---------- TAB 3: Chat Assistant ----------
 with tab3:
-    st.header("Chat Assistant")
+    st.subheader("Chat Assistant")
     st.write("A simple conversational assistant with memory.")
 
     if "chat_history" not in st.session_state:
@@ -153,7 +207,7 @@ with tab3:
             {"role": "system", "content": "You are a friendly, helpful assistant. Keep answers concise."}
         ]
 
-    if st.button("Clear Chat", key="clear_chat_btn"):
+    if st.button("🗑️ Clear Chat", key="clear_chat_btn"):
         st.session_state.chat_history = [
             {"role": "system", "content": "You are a friendly, helpful assistant. Keep answers concise."}
         ]
@@ -181,5 +235,8 @@ with tab3:
             st.write(reply)
 
 # ---------- FOOTER ----------
-st.markdown("---")
-st.caption("© 2026 Fatima Iqbal — Built while learning the AI stack.")
+st.markdown("""
+<div class="footer">
+    © 2026 Fatima Iqbal — Built while learning the AI stack 🚀
+</div>
+""", unsafe_allow_html=True)
