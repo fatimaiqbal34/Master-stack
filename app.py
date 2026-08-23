@@ -16,6 +16,18 @@ client = Groq(api_key=api_key)
 
 st.set_page_config(page_title="My AI Agents", page_icon="🤖", layout="centered")
 
+# ---------- SIDEBAR ----------
+with st.sidebar:
+    st.header("👋 About Me")
+    st.write("Hi, I'm **Fatima Iqbal** — learning to build AI-powered applications from scratch.")
+    st.write("This site showcases the AI agents I built while mastering the AI stack.")
+    st.markdown("---")
+    st.write("🔗 **Links**")
+    st.write("[GitHub](https://github.com/fatimaiqbal34)")
+    st.markdown("---")
+    st.caption("Built with Python, Groq API & Streamlit")
+
+# ---------- MAIN PAGE ----------
 st.title("🤖 My AI Agents")
 st.write("A collection of AI tools I built while learning the AI stack.")
 
@@ -167,3 +179,7 @@ with tab3:
         st.session_state.chat_history.append({"role": "assistant", "content": reply})
         with st.chat_message("assistant"):
             st.write(reply)
+
+# ---------- FOOTER ----------
+st.markdown("---")
+st.caption("© 2026 Fatima Iqbal — Built while learning the AI stack.")
