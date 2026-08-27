@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reasoning Agent | Fatima Iqbal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<main>
+
+    <section class="page-hero">
+
+        <div class="container">
+
+            <span class="section-label">Agent 02</span>
+
+            <h1>Reasoning Agent</h1>
+
+            <p>
+                Ask a question and the agent decides whether
+                it needs a tool.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="form-box">
+
+                <label for="question">
+                    Ask something
+                </label>
+
+                <input
+                    id="question"
+                    type="text"
+                    placeholder="Example: What is 245 × 12?"
+                >
+
+                <div class="form-actions">
+
+                    <button
+                        class="btn btn-primary"
+                        id="askReasoningBtn">
+                        🚀 Ask Agent
+                    </button>
+
+                </div>
+
+                <div class="result" id="reasoningResult">
+                    Agent response will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/api.js"></script>
+
+<script>
+
+document.getElementById("askReasoningBtn").addEventListener("click", async () => {
+
+    const question =
+        document.getElementById("question").value.trim();
+
+    const result =
+        document.getElementById("reasoningResult");
+
+    if (!question) {
+        result.textContent = "Please enter a question.";
+        return;
+    }
+
+    result.innerHTML =
+        '<span class="loading">Agent is thinking...</span>';
+
+    try {
+
+        const data = await askReasoning(question);
+
+        result.textContent =
+            data.answer ||
+            data.result ||
+            data.response ||
+            JSON.stringify(data, null, 2);
+
+    } catch (error) {
+
+        result.textContent =
+            "Reasoning API is not connected yet. Make sure the backend is running.";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
