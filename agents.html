@@ -58,6 +58,15 @@
             box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
         }
 
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
         .badge-active {
             font-size: 0.75rem;
             background: rgba(16, 185, 129, 0.12);
@@ -99,22 +108,6 @@
             background: #10b981;
             border-radius: 50%;
             box-shadow: 0 0 10px #10b981;
-        }
-
-        /* Mock Visual Box Styles matching reference image */
-        .preview-box {
-            width: 100%;
-            height: 180px;
-            border-radius: 14px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 16px;
-            box-sizing: border-box;
         }
     </style>
 </head>
@@ -199,21 +192,8 @@
                     <!-- Card 1: Chat Assistant -->
                     <div class="agent-card">
                         <div>
-                            <!-- Visual Graphic matching Dark Chat Assistant -->
-                            <div class="preview-box" style="background: linear-gradient(135deg, #090d16 0%, #030712 100%);">
-                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                                    <div style="width: 36px; height: 36px; background: #2563eb; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                        <i data-lucide="bot" style="width: 20px; height: 20px; color: #fff;"></i>
-                                    </div>
-                                    <div>
-                                        <div style="font-weight: 700; color: #fff; font-size: 0.9rem;">Chat Assistant</div>
-                                        <div style="font-size: 0.68rem; color: #6b7280;">Conversational System</div>
-                                    </div>
-                                </div>
-                                <div style="background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); font-size: 0.72rem; color: #9ca3af; margin-bottom: 8px;">
-                                    Prompt response, model status & chat history...
-                                </div>
-                            </div>
+                            <!-- Direct image link from local images folder -->
+                            <img src="images/chat.png" alt="Chat Assistant" class="card-image" onerror="this.src='images/chat.jpg';">
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                                 <h3 style="font-size: 1.25rem; color: #fff; margin: 0;">Chat Assistant</h3>
@@ -233,18 +213,8 @@
                     <!-- Card 2: Blog Generator -->
                     <div class="agent-card">
                         <div>
-                            <!-- Visual Graphic matching Light/Purple Blog Mockup -->
-                            <div class="preview-box" style="background: #ffffff; color: #1e293b;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                                    <div style="width: 30px; height: 30px; background: #8b5cf6; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;">
-                                        <i data-lucide="file-text" style="width: 16px; height: 16px;"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.85rem; color: #0f172a;">Blog Generator</div>
-                                </div>
-                                <div style="font-size: 0.72rem; color: #64748b; line-height: 1.3;">
-                                    Generates full SEO-optimized tech blog posts from simple text notes.
-                                </div>
-                            </div>
+                            <!-- Direct image link from local images folder -->
+                            <img src="images/blog.png" alt="Blog Generator" class="card-image" onerror="this.src='images/blog.jpg';">
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                                 <h3 style="font-size: 1.25rem; color: #fff; margin: 0;">Blog Generator</h3>
@@ -264,18 +234,8 @@
                     <!-- Card 3: Reasoning Agent -->
                     <div class="agent-card">
                         <div>
-                            <!-- Visual Graphic matching Light Reasoning Flowchart -->
-                            <div class="preview-box" style="background: #f8fafc; color: #0f172a;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                                    <div style="width: 30px; height: 30px; background: #2563eb; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;">
-                                        <i data-lucide="brain" style="width: 16px; height: 16px;"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.85rem; color: #0f172a;">Reasoning Agent</div>
-                                </div>
-                                <div style="font-size: 0.72rem; color: #475569; line-height: 1.3;">
-                                    Solves complex multi-step analytical problems with transparent step-by-step logic.
-                                </div>
-                            </div>
+                            <!-- Direct image link from local images folder -->
+                            <img src="images/reasoning.png" alt="Reasoning Agent" class="card-image" onerror="this.src='images/reasoning.jpg';">
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                                 <h3 style="font-size: 1.25rem; color: #fff; margin: 0;">Reasoning Agent</h3>
