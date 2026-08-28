@@ -1,4 +1,3 @@
-<!-- projects.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,51 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Fatima Iqbal</title>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f3f4f6; margin: 0; display: flex; min-height: 100vh; }
-        h1, h3 { font-family: 'Space Grotesk', sans-serif; }
-        .card { background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(15, 23, 42, 0.9)); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 24px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { transform: translateY(-4px;); border-color: rgba(59, 130, 246, 0.4); }
-        .tag { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0b0f19; color: #f3f4f6; min-height: 100vh; }
+        .app-container { display: flex; min-height: 100vh; width: 100%; }
+        .sidebar { width: 250px; background: #0f172a; border-right: 1px solid rgba(255,255,255,0.08); padding: 24px; flex-shrink: 0; }
+        .sidebar-brand { font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
+        .nav-item { color: #94a3b8; text-decoration: none; padding: 10px 14px; border-radius: 8px; display: flex; align-items: center; gap: 12px; font-size: 0.9rem; transition: 0.2s; }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-item.active { color: #3b82f6; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.2); font-weight: 600; }
+        .main-wrapper { flex: 1; display: flex; flex-direction: column; width: calc(100% - 250px); }
+        .top-header { padding: 16px 36px; border-bottom: 1px solid rgba(255,255,255,0.08); background: #0b0f19; width: 100%; }
+        .main-content { padding: 36px; width: 100%; box-sizing: border-box; }
+        
+        .banner-card { 
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.5) 100%);
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 16px; 
+            padding: 32px; 
+            margin-bottom: 28px; 
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .card-header-badge { color: #3b82f6; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; }
+
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; width: 100%; }
+        
+        .project-card { 
+            background: rgba(15, 23, 42, 0.7); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 16px; 
+            padding: 28px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .project-card:hover::before { opacity: 1; }
+
+        .tag-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+        .btn-link:hover { opacity: 0.8; gap: 12px; }
     </style>
 </head>
 <body>
-    <aside style="width: 260px; background: rgba(3, 7, 18, 0.95); border-right: 1px solid rgba(255,255,255,0.08); padding: 28px 20px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-            <div style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">Fatima Iqbal</div>
-            <nav style="display: flex; flex-direction: column; gap: 6px;">
-                <a href="index.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">Dashboard</a>
-                <a href="agents.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">AI Agents</a>
-                <a href="stack.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">AI Stack</a>
-                <a href="projects.html" style="color: #60a5fa; background: rgba(59, 130, 246, 0.12); text-decoration: none; padding: 10px 14px; border-radius: 8px; font-weight: 600;">Projects</a>
-                <a href="skills.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">Skills</a>
-                <a href="about.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">About</a>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                <span>Master AI Stack</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                <a href="agents.html" class="nav-item"><i data-lucide="bot"></i><span>AI Agents</span></a>
+                <a href="stack.html" class="nav-item"><i data-lucide="layers"></i><span>AI Stack</span></a>
+                <a href="projects.html" class="nav-item active"><i data-lucide="folder-git-2"></i><span>Projects</span></a>
+                <a href="skills.html" class="nav-item"><i data-lucide="sparkles"></i><span>Skills</span></a>
+                <a href="about.html" class="nav-item"><i data-lucide="info"></i><span>About</span></a>
             </nav>
-        </div>
-    </aside>
-    <main style="flex: 1; padding: 40px; box-sizing: border-box; max-width: 1200px;">
-        <span style="color: #3b82f6; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Portfolio Suite</span>
-        <h1 style="font-size: 2.2rem; color: #fff; margin-top: 4px; margin-bottom: 30px;">Featured AI Projects 💼</h1>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-            <div class="card">
-                <div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;"><span class="tag">Full Stack AI</span><i data-lucide="cpu" style="color: #60a5fa;"></i></div>
-                    <h3 style="color: #fff; margin: 0 0 8px 0;">Master AI Stack Dashboard</h3>
-                    <p style="color: #9ca3af; font-size: 0.88rem; line-height: 1.5;">Multi-page interactive portfolio and engineering workspace tracking milestones, models, and workflows.</p>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
+                    Dashboard / <span style="color: #fff;">Projects</span>
                 </div>
-                <a href="https://github.com/fatimaiqbal34/Master-stack" target="_blank" style="margin-top: 20px; color: #60a5fa; text-decoration: none; font-size: 0.85rem; font-weight: 600;">View Repository &rarr;</a>
-            </div>
-            <div class="card">
-                <div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;"><span class="tag">Generative AI</span><i data-lucide="bot" style="color: #a855f7;"></i></div>
-                    <h3 style="color: #fff; margin: 0 0 8px 0;">Autonomous Conversational Agent</h3>
-                    <p style="color: #9ca3af; font-size: 0.88rem; line-height: 1.5;">Low-latency AI chat interface integrating modern LLM endpoints with persistent session states.</p>
+            </header>
+
+            <main class="main-content">
+                <div class="banner-card">
+                    <span class="card-header-badge" style="margin-bottom: 12px; display: inline-block;">FEATURED WORK</span>
+                    <h1 style="font-size: 2.2rem; margin: 8px 0; font-weight: 700; color: #fff;">
+                        AI Systems & <span style="color: #3b82f6;">Applications</span>
+                    </h1>
+                    <p style="color: #94a3b8; max-width: 800px; font-size: 0.95rem;">
+                        Explore production-ready AI solutions, custom RAG architecture setups, and interactive autonomous workflow systems.
+                    </p>
                 </div>
-                <a href="https://github.com/fatimaiqbal34/Master-stack" target="_blank" style="margin-top: 20px; color: #60a5fa; text-decoration: none; font-size: 0.85rem; font-weight: 600;">View Repository &rarr;</a>
-            </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                                <div style="width: 42px; height: 42px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                    <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 4px 10px; border-radius: 12px; font-weight: 600;">Full Stack AI</span>
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.25rem; margin-bottom: 10px;">Master AI Stack Workspace</h3>
+                            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+                                An interactive engineering dashboard designed to monitor core ML models, test RAG pipelines, and manage agent execution nodes.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <span class="tag-pill">Python</span>
+                                <span class="tag-pill">HTML/CSS</span>
+                                <span class="tag-pill">LLM API</span>
+                            </div>
+                        </div>
+                        <a href="stack.html" class="btn-link">
+                            <span>Explore Stack Workspace</span>
+                            <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                                <div style="width: 42px; height: 42px; background: rgba(168, 85, 247, 0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                    <i data-lucide="bot" style="color: #a855f7;"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); padding: 4px 10px; border-radius: 12px; font-weight: 600;">Autonomous Agent</span>
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.25rem; margin-bottom: 10px;">LLM Conversational System</h3>
+                            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+                                High-efficiency agent integration capable of contextual tracking, low-latency API calls, and automated task handling.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <span class="tag-pill">LangChain</span>
+                                <span class="tag-pill">FastAPI</span>
+                                <span class="tag-pill">Vector DB</span>
+                            </div>
+                        </div>
+                        <a href="agents.html" class="btn-link" style="color: #a855f7;">
+                            <span>Explore Autonomous Agent</span>
+                            <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </main>
         </div>
-    </main>
+    </div>
     <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
 </body>
 </html>

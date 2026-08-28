@@ -1,4 +1,3 @@
-<!-- skills.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,56 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | Fatima Iqbal</title>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f3f4f6; margin: 0; display: flex; min-height: 100vh; }
-        h1, h3 { font-family: 'Space Grotesk', sans-serif; }
-        .card { background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(15, 23, 42, 0.9)); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 24px; }
-        .pill { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); padding: 8px 14px; border-radius: 10px; font-size: 0.85rem; color: #d1d5db; display: inline-block; margin: 4px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0b0f19; color: #f3f4f6; min-height: 100vh; }
+        .app-container { display: flex; min-height: 100vh; width: 100%; }
+        .sidebar { width: 250px; background: #0f172a; border-right: 1px solid rgba(255,255,255,0.08); padding: 24px; flex-shrink: 0; }
+        .sidebar-brand { font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
+        .nav-item { color: #94a3b8; text-decoration: none; padding: 10px 14px; border-radius: 8px; display: flex; align-items: center; gap: 12px; font-size: 0.9rem; transition: 0.2s; }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-item.active { color: #3b82f6; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.2); font-weight: 600; }
+        .main-wrapper { flex: 1; display: flex; flex-direction: column; width: calc(100% - 250px); }
+        .top-header { padding: 16px 36px; border-bottom: 1px solid rgba(255,255,255,0.08); background: #0b0f19; width: 100%; }
+        .main-content { padding: 36px; width: 100%; box-sizing: border-box; }
+        .banner-card { background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; margin-bottom: 24px; width: 100%; }
+        .card-header-badge { color: #3b82f6; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; }
+        .card { background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; width: 100%; }
+        .tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; color: #cbd5e1; display: inline-flex; align-items: center; gap: 6px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; width: 100%; }
     </style>
 </head>
 <body>
-    <aside style="width: 260px; background: rgba(3, 7, 18, 0.95); border-right: 1px solid rgba(255,255,255,0.08); padding: 28px 20px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-            <div style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">Fatima Iqbal</div>
-            <nav style="display: flex; flex-direction: column; gap: 6px;">
-                <a href="index.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">Dashboard</a>
-                <a href="agents.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">AI Agents</a>
-                <a href="stack.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">AI Stack</a>
-                <a href="projects.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">Projects</a>
-                <a href="skills.html" style="color: #60a5fa; background: rgba(59, 130, 246, 0.12); text-decoration: none; padding: 10px 14px; border-radius: 8px; font-weight: 600;">Skills</a>
-                <a href="about.html" style="color: #9ca3af; text-decoration: none; padding: 10px 14px; border-radius: 8px;">About</a>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                <span>Master AI Stack</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                <a href="agents.html" class="nav-item"><i data-lucide="bot"></i><span>AI Agents</span></a>
+                <a href="stack.html" class="nav-item"><i data-lucide="layers"></i><span>AI Stack</span></a>
+                <a href="projects.html" class="nav-item"><i data-lucide="folder-git-2"></i><span>Projects</span></a>
+                <a href="skills.html" class="nav-item active"><i data-lucide="sparkles"></i><span>Skills</span></a>
+                <a href="about.html" class="nav-item"><i data-lucide="info"></i><span>About</span></a>
             </nav>
-        </div>
-    </aside>
-    <main style="flex: 1; padding: 40px; box-sizing: border-box; max-width: 1200px;">
-        <span style="color: #3b82f6; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Competency Matrix</span>
-        <h1 style="font-size: 2.2rem; color: #fff; margin-top: 4px; margin-bottom: 30px;">Skills & Technologies 🚀</h1>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-            <div class="card">
-                <h3 style="color: #fff; margin-top: 0; margin-bottom: 16px;">AI & Machine Learning</h3>
-                <div>
-                    <span class="pill">Python</span>
-                    <span class="pill">PyTorch</span>
-                    <span class="pill">Scikit-Learn</span>
-                    <span class="pill">Groq LLM APIs</span>
-                    <span class="pill">RAG Architecture</span>
-                    <span class="pill">LangChain</span>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
+                    Dashboard / <span style="color: #fff;">Skills</span>
                 </div>
-            </div>
-            <div class="card">
-                <h3 style="color: #fff; margin-top: 0; margin-bottom: 16px;">Web & Engineering Tools</h3>
-                <div>
-                    <span class="pill">HTML5 & CSS3</span>
-                    <span class="pill">JavaScript</span>
-                    <span class="pill">Git & GitHub</span>
-                    <span class="pill">GitHub Pages</span>
-                    <span class="pill">REST APIs</span>
-                    <span class="pill">VS Code</span>
+            </header>
+
+            <main class="main-content">
+                <div class="banner-card">
+                    <span class="card-header-badge" style="margin-bottom: 12px; display: inline-block;">TECHNICAL CAPABILITIES</span>
+                    <h1 style="font-size: 2.2rem; margin: 8px 0; font-weight: 700; color: #fff;">
+                        Skills & <span style="color: #3b82f6;">Technologies</span>
+                    </h1>
+                    <p style="color: #94a3b8; max-width: 800px; font-size: 0.95rem;">
+                        Core technical proficiencies, machine learning frameworks, data architectures, and software engineering tools.
+                    </p>
                 </div>
-            </div>
+
+                <div class="skills-grid">
+                    <div class="card">
+                        <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i data-lucide="brain" style="color: #3b82f6;"></i> AI & Machine Learning
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">Model Fine-Tuning</span>
+                            <span class="tag">LLM Integration</span>
+                            <span class="tag">RAG Architectures</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i data-lucide="database" style="color: #3b82f6;"></i> Data & Systems
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Oracle SQL</span>
+                            <span class="tag">Database Design</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">ETL Pipelines</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i data-lucide="code-2" style="color: #3b82f6;"></i> Web & Engineering
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Git / GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i data-lucide="sparkles" style="color: #3b82f6;"></i> Core Strengths
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="tag">Practical AI Building</span>
+                            <span class="tag">Problem Solving</span>
+                            <span class="tag">Continuous Learning</span>
+                            <span class="tag">System Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-    </main>
+    </div>
     <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
 </body>
 </html>
