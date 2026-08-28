@@ -2,112 +2,134 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Blog Agent | Fatima Iqbal</title>
-
+    <meta name="description" content="Turn project notes into technical blog posts using AI.">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-<main>
+    <div class="app-container">
 
-    <section class="page-hero">
-
-        <div class="container">
-
-            <span class="section-label">Agent 01</span>
-
-            <h1>Project-to-Blog Agent</h1>
-
-            <p>
-                Turn your rough project notes into a polished
-                technical blog post.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="section">
-
-        <div class="container">
-
-            <div class="form-box">
-
-                <label for="blogNotes">
-                    Tell me about your project
-                </label>
-
-                <textarea
-                    id="blogNotes"
-                    placeholder="Example: I built an AI chatbot using Python and the Groq API..."
-                ></textarea>
-
-                <div class="form-actions">
-
-                    <button
-                        class="btn btn-primary"
-                        id="generateBlog">
-                        ✨ Generate Blog
-                    </button>
-
-                </div>
-
-                <div class="result" id="blogResult">
-                    Your generated blog will appear here.
-                </div>
-
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                <span>Master AI Stack</span>
             </div>
 
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="agents.html" class="nav-item active">
+                    <i data-lucide="bot"></i>
+                    <span>AI Agents</span>
+                </a>
+                <a href="stack.html" class="nav-item">
+                    <i data-lucide="layers"></i>
+                    <span>AI Stack</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i data-lucide="folder-git-2"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="skills.html" class="nav-item">
+                    <i data-lucide="sparkles"></i>
+                    <span>Skills</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <i data-lucide="info"></i>
+                    <span>About</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+
+            <header class="top-header">
+                <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
+                    Agents / <span style="color: #fff;">Blog Generator</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="card-header-badge">
+                        <span style="width: 6px; height: 6px; background: #a855f7; border-radius: 50%;"></span>
+                        Agent 01
+                    </span>
+                </div>
+            </header>
+
+            <main class="main-content">
+
+                <div style="margin-bottom: 28px;">
+                    <span style="color: #3b82f6; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;">Content Automation</span>
+                    <h1 style="font-family: var(--display); font-size: 2rem; margin-top: 4px; font-weight: 700;">Project-to-Blog Agent ✨</h1>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">
+                        Turn your rough project notes into structured, well-formatted technical articles.
+                    </p>
+                </div>
+
+                <div class="card" style="max-width: 800px;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="blogNotes" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: #e2e8f0;">
+                            Tell me about your project
+                        </label>
+                        <textarea id="blogNotes" placeholder="Example: I built an AI chatbot using Python and the Groq API..." style="width: 100%; height: 140px; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; resize: vertical; font-family: inherit;"></textarea>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <button class="btn btn-primary" id="generateBlog" style="padding: 10px 20px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                            <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
+                            Generate Blog
+                        </button>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--border); padding-top: 20px;">
+                        <div style="font-size: 0.8rem; font-family: var(--mono); color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">
+                            Generated Content
+                        </div>
+                        <div class="result" id="blogResult" style="background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; border: 1px solid var(--border); min-height: 140px; color: #cbd5e1; font-size: 0.92rem; white-space: pre-wrap; line-height: 1.6;">
+                            Your generated blog will appear here.
+                        </div>
+                    </div>
+                </div>
+
+            </main>
         </div>
+    </div>
 
-    </section>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
 
-</main>
+    <script>
+        document.getElementById("generateBlog").addEventListener("click", async () => {
+            const notes = document.getElementById("blogNotes").value.trim();
+            const result = document.getElementById("blogResult");
 
-<script src="js/main.js"></script>
-<script src="js/api.js"></script>
+            if (!notes) {
+                result.textContent = "Please enter your project notes first.";
+                return;
+            }
 
-<script>
+            result.innerHTML = '<span style="color: #3b82f6;">Generating blog...</span>';
 
-document.getElementById("generateBlog").addEventListener("click", async () => {
-
-    const notes = document.getElementById("blogNotes").value.trim();
-    const result = document.getElementById("blogResult");
-
-    if (!notes) {
-        result.textContent = "Please enter your project notes first.";
-        return;
-    }
-
-    result.innerHTML = '<span class="loading">Generating blog...</span>';
-
-    try {
-
-        const data = await generateBlog(notes);
-
-        result.textContent =
-            data.blog ||
-            data.content ||
-            data.result ||
-            JSON.stringify(data, null, 2);
-
-    } catch (error) {
-
-        result.textContent =
-            "Unable to connect to the backend. Make sure FastAPI is running on port 8000.";
-
-    }
-
-});
-
-</script>
+            try {
+                const data = await generateBlog(notes);
+                result.textContent = data.blog || data.content || data.result || JSON.stringify(data, null, 2);
+            } catch (error) {
+                result.textContent = "Unable to connect to the backend. Make sure FastAPI is running on port 8000.";
+            }
+        });
+    </script>
 
 </body>
+
 </html>

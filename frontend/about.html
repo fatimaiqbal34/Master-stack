@@ -2,91 +2,113 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>About | Fatima Iqbal</title>
-
+    <meta name="description" content="About Fatima Iqbal - AI Engineering Journey.">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-<main>
+    <div class="app-container">
 
-    <section class="page-hero">
-
-        <div class="container">
-
-            <span class="section-label">About Me</span>
-
-            <h1>Building with curiosity.</h1>
-
-            <p>
-                A short introduction to my AI engineering journey,
-                interests and technical direction.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="section">
-
-        <div class="container">
-
-            <div class="about-grid">
-
-                <div class="about-box">
-
-                    <div class="card-icon">👩‍💻</div>
-
-                    <h2>Fatima Iqbal</h2>
-
-                    <p>
-                        Data Science graduate with an interest in
-                        Artificial Intelligence, Machine Learning
-                        and AI Engineering.
-                    </p>
-
-                </div>
-
-
-                <div class="about-box">
-
-                    <h2>My Journey</h2>
-
-                    <p>
-                        I am building my AI skills step by step,
-                        starting from Python fundamentals and moving
-                        towards modern AI application development.
-                    </p>
-
-                    <p>
-                        My learning path includes Machine Learning,
-                        Deep Learning, Generative AI, RAG, AI Engineering,
-                        MCP and AI Agents.
-                    </p>
-
-                    <p>
-                        This website is a practical record of the
-                        systems and projects I build along the way.
-                    </p>
-
-                </div>
-
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                <span>Master AI Stack</span>
             </div>
 
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="agents.html" class="nav-item">
+                    <i data-lucide="bot"></i>
+                    <span>AI Agents</span>
+                </a>
+                <a href="stack.html" class="nav-item">
+                    <i data-lucide="layers"></i>
+                    <span>AI Stack</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i data-lucide="folder-git-2"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="skills.html" class="nav-item">
+                    <i data-lucide="sparkles"></i>
+                    <span>Skills</span>
+                </a>
+                <a href="about.html" class="nav-item active">
+                    <i data-lucide="info"></i>
+                    <span>About</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+
+            <header class="top-header">
+                <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
+                    Dashboard / <span style="color: #fff;">About</span>
+                </div>
+            </header>
+
+            <main class="main-content">
+
+                <div class="banner-card">
+                    <span class="card-header-badge" style="margin-bottom: 12px;">
+                        ABOUT ME
+                    </span>
+
+                    <h1 style="font-family: var(--display); font-size: 2.2rem; margin: 8px 0; font-weight: 700;">
+                        Building with <span style="color: #3b82f6;">curiosity</span>.
+                    </h1>
+
+                    <p style="color: var(--muted); max-width: 680px; font-size: 0.95rem; margin-bottom: 20px;">
+                        A short introduction to my AI engineering journey, interests, and technical direction.
+                    </p>
+
+                    <div style="border-top: 1px solid var(--border); padding-top: 20px; display: flex; align-items: center; gap: 16px;">
+                        <div style="width: 50px; height: 50px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #3b82f6; font-size: 1.4rem; font-weight: bold;">
+                            FI
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: #fff;">Fatima Iqbal</div>
+                            <div style="color: var(--muted); font-size: 0.85rem;">Data Science Graduate & AI Engineer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 24px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: #3b82f6;">
+                        <i data-lucide="compass"></i>
+                        <h3 style="font-family: var(--display); font-size: 1.3rem; color: #fff;">My Journey</h3>
+                    </div>
+                    
+                    <p style="color: var(--muted); font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px;">
+                        I am building my AI skills step by step, starting from Python fundamentals and moving towards modern AI application development.
+                    </p>
+                    <p style="color: var(--muted); font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px;">
+                        My learning path includes Machine Learning, Deep Learning, Generative AI, RAG, AI Engineering, MCP, and AI Agents.
+                    </p>
+                    <p style="color: var(--muted); font-size: 0.92rem; line-height: 1.8;">
+                        This website is a practical record of the systems and projects I build along the way.
+                    </p>
+                </div>
+
+            </main>
         </div>
+    </div>
 
-    </section>
-
-</main>
-
-<script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>

@@ -2,163 +2,179 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Chat Assistant | Fatima Iqbal</title>
-
+    <title>Chat Assistant | Master AI Stack</title>
+    <meta name="description" content="Conversational AI Assistant powered by Master AI Stack backend.">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-<main>
+    <div class="app-container">
 
-    <section class="page-hero">
-
-        <div class="container">
-
-            <span class="section-label">Agent 03</span>
-
-            <h1>Chat Assistant</h1>
-
-            <p>
-                Have a conversation with the AI assistant.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="section">
-
-        <div class="container">
-
-            <div class="chat-container">
-
-                <div class="chat-header">
-
-                    <h3>💬 AI Assistant</h3>
-
-                    <p>
-                        Powered by the Master AI Stack backend
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="chat-messages"
-                    id="chatMessages">
-
-                    <div class="message ai">
-                        Hello! How can I help you today?
-                    </div>
-
-                </div>
-
-
-                <form class="chat-form" id="chatForm">
-
-                    <input
-                        id="chatInput"
-                        type="text"
-                        placeholder="Type your message..."
-                        autocomplete="off"
-                    >
-
-                    <button
-                        class="btn btn-primary"
-                        type="submit">
-                        Send
-                    </button>
-
-                </form>
-
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                <span>Master AI Stack</span>
             </div>
 
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="agents.html" class="nav-item active">
+                    <i data-lucide="bot"></i>
+                    <span>AI Agents</span>
+                </a>
+                <a href="stack.html" class="nav-item">
+                    <i data-lucide="layers"></i>
+                    <span>AI Stack</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i data-lucide="folder-git-2"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="skills.html" class="nav-item">
+                    <i data-lucide="sparkles"></i>
+                    <span>Skills</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <i data-lucide="info"></i>
+                    <span>About</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+
+            <header class="top-header">
+                <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
+                    Agents / <span style="color: #fff;">Chat Assistant</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="card-header-badge">
+                        <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%;"></span>
+                        Agent 03
+                    </span>
+                </div>
+            </header>
+
+            <main class="main-content">
+
+                <div style="margin-bottom: 24px;">
+                    <span style="color: #3b82f6; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;">Conversational Interface</span>
+                    <h1 style="font-family: var(--display); font-size: 2rem; margin-top: 4px; font-weight: 700;">AI Assistant 💬</h1>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">
+                        Interactive chat session powered by Master AI Stack backend.
+                    </p>
+                </div>
+
+                <div class="card" style="max-width: 850px; display: flex; flex-direction: column; height: 620px; padding: 0; overflow: hidden;">
+                    
+                    <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02);">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 32px; height: 32px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #3b82f6;">
+                                <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.95rem; color: #fff;">Interactive Session</div>
+                                <div style="font-size: 0.75rem; color: var(--muted);">Groq API Engine</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages" style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px;">
+                        <div class="message ai" style="align-self: flex-start; max-width: 80%; background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border-bottom-left-radius: 2px; color: #e2e8f0; font-size: 0.92rem; border: 1px solid var(--border);">
+                            Hello! How can I help you today?
+                        </div>
+                    </div>
+
+                    <form class="chat-form" id="chatForm" style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 12px; background: rgba(0,0,0,0.1);">
+                        <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off" style="flex: 1; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none;">
+                        <button id="sendBtn" class="btn btn-primary" type="submit" style="padding: 12px 20px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                            Send <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                        </button>
+                    </form>
+
+                </div>
+
+            </main>
         </div>
+    </div>
 
-    </section>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
 
-</main>
+    <script>
+        const chatForm = document.getElementById("chatForm");
+        const chatInput = document.getElementById("chatInput");
+        const chatMessages = document.getElementById("chatMessages");
+        const sendBtn = document.getElementById("sendBtn");
 
-<script src="js/main.js"></script>
-<script src="js/api.js"></script>
+        let history = [];
 
-<script>
+        function addMessage(text, type) {
+            const message = document.createElement("div");
+            message.className = `message ${type}`;
+            
+            if (type === 'user') {
+                message.style.cssText = "align-self: flex-end; max-width: 80%; background: #3b82f6; padding: 12px 16px; border-radius: 12px; border-bottom-right-radius: 2px; color: #fff; font-size: 0.92rem;";
+            } else {
+                message.style.cssText = "align-self: flex-start; max-width: 80%; background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border-bottom-left-radius: 2px; color: #e2e8f0; font-size: 0.92rem; border: 1px solid var(--border); white-space: pre-wrap;";
+            }
 
-const chatForm = document.getElementById("chatForm");
-const chatInput = document.getElementById("chatInput");
-const chatMessages = document.getElementById("chatMessages");
+            message.textContent = text;
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return message;
+        }
 
-let history = [];
+        chatForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const message = chatInput.value.trim();
 
-function addMessage(text, type) {
+            if (!message) return;
 
-    const message = document.createElement("div");
+            addMessage(message, "user");
+            chatInput.value = "";
+            chatInput.disabled = true;
+            sendBtn.disabled = true;
 
-    message.className = `message ${type}`;
+            // Indicator loader
+            const loadingMsg = addMessage("Thinking...", "ai");
 
-    message.textContent = text;
+            try {
+                const data = await askChat(message, history);
+                const reply = data.reply || data.answer || data.response || data.result || "I couldn't generate a response.";
 
-    chatMessages.appendChild(message);
+                // Remove temporary thinking text and update with actual reply
+                loadingMsg.textContent = reply;
 
-    chatMessages.scrollTop =
-        chatMessages.scrollHeight;
-}
+                // Push formatted history entries matching FastAPI ChatMessage model
+                history.push({ role: "user", content: message });
+                history.push({ role: "assistant", content: reply });
 
-
-chatForm.addEventListener("submit", async (event) => {
-
-    event.preventDefault();
-
-    const message = chatInput.value.trim();
-
-    if (!message) return;
-
-    addMessage(message, "user");
-
-    chatInput.value = "";
-
-    try {
-
-        const data = await askChat(message, history);
-
-        const reply =
-            data.reply ||
-            data.answer ||
-            data.response ||
-            data.result ||
-            "I couldn't generate a response.";
-
-        addMessage(reply, "ai");
-
-        history.push({
-            role: "user",
-            content: message
+            } catch (error) {
+                console.error("Chat API Error:", error);
+                loadingMsg.textContent = "Backend connection failed. Please check server terminal for error details.";
+                loadingMsg.style.borderColor = "#ef4444";
+                loadingMsg.style.color = "#fca5a5";
+            } finally {
+                chatInput.disabled = false;
+                sendBtn.disabled = false;
+                chatInput.focus();
+            }
         });
-
-        history.push({
-            role: "assistant",
-            content: reply
-        });
-
-    } catch (error) {
-
-        addMessage(
-            "Backend connection failed. Please make sure FastAPI is running.",
-            "ai"
-        );
-
-    }
-
-});
-
-</script>
+    </script>
 
 </body>
+
 </html>

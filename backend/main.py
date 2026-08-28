@@ -11,7 +11,7 @@ from agents.chat_agent import chat_with_assistant
 
 app = FastAPI(
     title="Master AI Stack API",
-    description="Backend API for Fatima Iqbal's AI Agents",
+    description="Backend API for AI Agents",
     version="1.0.0",
 )
 
@@ -60,7 +60,6 @@ def health():
 
 @app.post("/api/blog")
 def create_blog(request: BlogRequest):
-
     if not request.notes.strip():
         raise HTTPException(
             status_code=400,
@@ -69,12 +68,10 @@ def create_blog(request: BlogRequest):
 
     try:
         blog = generate_blog(request.notes)
-
         return {
             "success": True,
             "blog": blog,
         }
-
     except Exception as e:
         raise HTTPException(
             status_code=500,
@@ -82,9 +79,8 @@ def create_blog(request: BlogRequest):
         )
 
 
-@app.post("/api/reason")
+@app.post("/api/reasoning")
 def reason(request: ReasonRequest):
-
     if not request.question.strip():
         raise HTTPException(
             status_code=400,
@@ -93,7 +89,7 @@ def reason(request: ReasonRequest):
 
     try:
         result = ask_reasoning_agent(request.question)
-        return result  # { "answer": ..., "tool_used": ... }
+        return result
 
     except Exception as e:
         raise HTTPException(
@@ -104,7 +100,6 @@ def reason(request: ReasonRequest):
 
 @app.post("/api/chat")
 def chat(request: ChatRequest):
-
     if not request.message.strip():
         raise HTTPException(
             status_code=400,
@@ -116,7 +111,6 @@ def chat(request: ChatRequest):
         return {
             "reply": reply,
         }
-
     except Exception as e:
         raise HTTPException(
             status_code=500,

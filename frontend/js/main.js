@@ -1,81 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // 1. Highlight Active Navigation Item Automatically
+    setActiveNavLink();
 
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    // 2. Initialize Mobile Sidebar Toggle (if toggle button exists)
+    initMobileMenu();
+});
 
-    const navHTML = `
-        <nav class="navbar">
-            <div class="container nav-inner">
+/**
+ * Automatically sets the 'active' class on the sidebar link 
+ * matching the current page URL.
+ */
+function setActiveNavLink() {
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const navItems = document.querySelectorAll(".sidebar-nav .nav-item");
 
-                <a href="index.html" class="logo">
-                    Fatima<span>.</span>Iqbal
-                </a>
-
-                <button class="menu-btn" id="menuBtn">
-                    ☰
-                </button>
-
-                <div class="nav-links" id="navLinks">
-                    <a href="index.html">Home</a>
-                    <a href="stack.html">AI Stack</a>
-                    <a href="agents.html">Agents</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="skills.html">Skills</a>
-                    <a href="about.html">About</a>
-                    <a href="agents.html" class="nav-button">Try Agents →</a>
-                </div>
-
-            </div>
-        </nav>
-    `;
-
-    document.body.insertAdjacentHTML("afterbegin", navHTML);
-
-    const footerHTML = `
-        <footer>
-            <div class="container footer-inner">
-
-                <div>
-                    <div class="footer-name">Fatima Iqbal</div>
-                    <div class="copyright">
-                        © 2026 Fatima Iqbal. All rights reserved.
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <a href="https://github.com/fatimaiqbal34"
-                       target="_blank">
-                        GitHub
-                    </a>
-
-                    <a href="https://fatimaiqbal34.github.io/my-portfolio/"
-                       target="_blank">
-                        Portfolio
-                    </a>
-                </div>
-
-            </div>
-        </footer>
-    `;
-
-    document.body.insertAdjacentHTML("beforeend", footerHTML);
-
-    /* Mobile menu */
-
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-
-    menuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
-
-    /* Active page */
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    navItems.forEach((link) => {
         const href = link.getAttribute("href");
-
-        if (href === currentPage) {
+        if (href === currentPath) {
             link.classList.add("active");
+        } else {
+            link.classList.remove("active");
         }
     });
+}
 
-});
+/**
+ * Handles mobile sidebar menu open/close toggling.
+ */
+function initMobileMenu() {
+    const toggleBtn = document.getElementById("sidebarToggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener("click", (e) => {
+            if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                sidebar.classList.remove("open");
+            }
+        });
+    }
+}
+
+/**
+ * Helper to display temporary toast notifications in UI.
+ */
+function showNotification(message, type = "info") {
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        background: #1e293b;
+        color: #fff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        font-size: 0.9rem;
+        transition: opacity 0.3s ease;
+    `;
+    toast.textContent = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}

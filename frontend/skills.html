@@ -2,135 +2,145 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Skills | Fatima Iqbal</title>
-
+    <meta name="description" content="Technologies and tools I work with.">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-<main>
+    <div class="app-container">
 
-    <section class="page-hero">
-
-        <div class="container">
-
-            <span class="section-label">Toolbox</span>
-
-            <h1>Technologies I work with.</h1>
-
-            <p>
-                The tools and technologies used throughout
-                my AI learning journey.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="section">
-
-        <div class="container">
-
-            <div class="grid">
-
-                <div class="card">
-                    <div class="card-icon">🐍</div>
-                    <h3>Python</h3>
-                    <p>
-                        Core programming language used throughout
-                        the AI stack.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">📊</div>
-                    <h3>Scikit-learn</h3>
-                    <p>
-                        Machine learning models and evaluation.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">🔥</div>
-                    <h3>PyTorch</h3>
-                    <p>
-                        Deep learning and neural network development.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Groq API</h3>
-                    <p>
-                        Fast language model inference for AI applications.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">🔎</div>
-                    <h3>RAG</h3>
-                    <p>
-                        Retrieval and semantic search for grounded AI.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">🔌</div>
-                    <h3>MCP</h3>
-                    <p>
-                        Standardized communication between AI systems
-                        and tools.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>AI Agents</h3>
-                    <p>
-                        Tool calling, reasoning and agent workflows.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">🚀</div>
-                    <h3>FastAPI</h3>
-                    <p>
-                        Backend APIs for AI-powered applications.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-icon">🐙</div>
-                    <h3>Git & GitHub</h3>
-                    <p>
-                        Version control and project management.
-                    </p>
-                </div>
-
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" style="color: #3b82f6;"></i>
+                <span>Master AI Stack</span>
             </div>
 
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="agents.html" class="nav-item">
+                    <i data-lucide="bot"></i>
+                    <span>AI Agents</span>
+                </a>
+                <a href="stack.html" class="nav-item">
+                    <i data-lucide="layers"></i>
+                    <span>AI Stack</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i data-lucide="folder-git-2"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="skills.html" class="nav-item active">
+                    <i data-lucide="sparkles"></i>
+                    <span>Skills</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <i data-lucide="info"></i>
+                    <span>About</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+
+            <header class="top-header">
+                <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
+                    Dashboard / <span style="color: #fff;">Skills</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="card-header-badge">
+                        <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%;"></span>
+                        9 Core Technologies
+                    </span>
+                </div>
+            </header>
+
+            <main class="main-content">
+
+                <div style="margin-bottom: 28px;">
+                    <span style="color: #3b82f6; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;">Toolbox</span>
+                    <h1 style="font-family: var(--display); font-size: 2rem; margin-top: 4px; font-weight: 700;">Technologies I Work With 🛠️</h1>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">
+                        The tools, frameworks, and technologies used throughout my AI learning journey.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <div class="card">
+                        <div style="color: #3b82f6; margin-bottom: 12px;"><i data-lucide="code-2"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">Python</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Core programming language used throughout the AI stack.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #6366f1; margin-bottom: 12px;"><i data-lucide="bar-chart-3"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">Scikit-learn</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Machine learning models, algorithms, and evaluation.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #06b6d4; margin-bottom: 12px;"><i data-lucide="flame"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">PyTorch</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Deep learning, neural network design, and training.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #a855f7; margin-bottom: 12px;"><i data-lucide="zap"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">Groq API</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Ultra-fast language model inference for real-time AI apps.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #ec4899; margin-bottom: 12px;"><i data-lucide="database"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">RAG</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Retrieval and semantic search for context-grounded AI.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #10b981; margin-bottom: 12px;"><i data-lucide="plug"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">MCP</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Standardized protocol between AI systems and external tools.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #3b82f6; margin-bottom: 12px;"><i data-lucide="bot"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">AI Agents</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Tool calling, step reasoning, and multi-step workflows.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #6366f1; margin-bottom: 12px;"><i data-lucide="server"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">FastAPI</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Modern backend APIs for AI-powered web applications.</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="color: #06b6d4; margin-bottom: 12px;"><i data-lucide="git-branch"></i></div>
+                        <h3 style="font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px;">Git & GitHub</h3>
+                        <p style="color: var(--muted); font-size: 0.85rem;">Version control, repository management, and deployment.</p>
+                    </div>
+
+                </div>
+
+            </main>
         </div>
+    </div>
 
-    </section>
-
-</main>
-
-<script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
