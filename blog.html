@@ -4,132 +4,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Agent | Fatima Iqbal</title>
-    <meta name="description" content="Turn project notes into technical blog posts using AI.">
+    <title>Blog Generator | Fatima Iqbal</title>
     
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --card-bg: rgba(17, 24, 39, 0.8);
+            --border: rgba(255, 255, 255, 0.08);
+            --muted: #9ca3af;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --mono: 'Space Grotesk', monospace;
+            --display: 'Space Grotesk', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: rgba(3, 7, 18, 0.95);
+            border-right: 1px solid var(--border);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-item.active {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.12);
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .main-content {
+            padding: 36px 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="app-container">
-
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <i data-lucide="cpu" style="color: #3b82f6;"></i>
                 <span>Master AI Stack</span>
             </div>
-
             <nav class="sidebar-nav">
-                <a href="index.html" class="nav-item">
-                    <i data-lucide="layout-dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="agents.html" class="nav-item active">
-                    <i data-lucide="bot"></i>
-                    <span>AI Agents</span>
-                </a>
-                <a href="stack.html" class="nav-item">
-                    <i data-lucide="layers"></i>
-                    <span>AI Stack</span>
-                </a>
-                <a href="projects.html" class="nav-item">
-                    <i data-lucide="folder-git-2"></i>
-                    <span>Projects</span>
-                </a>
-                <a href="skills.html" class="nav-item">
-                    <i data-lucide="sparkles"></i>
-                    <span>Skills</span>
-                </a>
-                <a href="about.html" class="nav-item">
-                    <i data-lucide="info"></i>
-                    <span>About</span>
-                </a>
+                <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                <a href="agents.html" class="nav-item active"><i data-lucide="bot"></i><span>AI Agents</span></a>
+                <a href="stack.html" class="nav-item"><i data-lucide="layers"></i><span>AI Stack</span></a>
+                <a href="projects.html" class="nav-item"><i data-lucide="folder-git-2"></i><span>Projects</span></a>
+                <a href="skills.html" class="nav-item"><i data-lucide="sparkles"></i><span>Skills</span></a>
+                <a href="about.html" class="nav-item"><i data-lucide="info"></i><span>About</span></a>
             </nav>
         </aside>
 
+        <!-- Main Workspace -->
         <div class="main-wrapper">
-
             <header class="top-header">
                 <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
                     Agents / <span style="color: #fff;">Blog Generator</span>
                 </div>
-
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <span class="card-header-badge">
-                        <span style="width: 6px; height: 6px; background: #a855f7; border-radius: 50%;"></span>
-                        Agent 01
-                    </span>
-                </div>
+                <span class="card-header-badge">Agent 03</span>
             </header>
 
             <main class="main-content">
-
                 <div style="margin-bottom: 28px;">
-                    <span style="color: #3b82f6; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;">Content Automation</span>
-                    <h1 style="font-family: var(--display); font-size: 2rem; margin-top: 4px; font-weight: 700;">Project-to-Blog Agent ✨</h1>
-                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">
-                        Turn your rough project notes into structured, well-formatted technical articles.
-                    </p>
+                    <h1 style="font-family: var(--display); font-size: 2rem; font-weight: 700; color: #fff; margin: 0;">Blog Generator ✍️</h1>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">Provide brief notes or topics to generate full articles.</p>
                 </div>
 
-                <div class="card" style="max-width: 800px;">
+                <div class="card">
                     <div style="margin-bottom: 20px;">
                         <label for="blogNotes" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: #e2e8f0;">
-                            Tell me about your project
+                            Project Notes / Topic
                         </label>
-                        <textarea id="blogNotes" placeholder="Example: I built an AI chatbot using Python and the Groq API..." style="width: 100%; height: 140px; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; resize: vertical; font-family: inherit;"></textarea>
+                        <textarea id="blogNotes" rows="4" placeholder="Enter notes or topic outline..." style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
                     </div>
 
-                    <div style="margin-bottom: 24px;">
-                        <button class="btn btn-primary" id="generateBlog" style="padding: 10px 20px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-                            <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
-                            Generate Blog
-                        </button>
-                    </div>
+                    <button id="generateBtn" style="padding: 10px 20px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+                        <i data-lucide="sparkles" style="width: 18px; height: 18px;"></i>
+                        Generate Blog Post
+                    </button>
 
                     <div style="border-top: 1px solid var(--border); padding-top: 20px;">
                         <div style="font-size: 0.8rem; font-family: var(--mono); color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">
-                            Generated Content
+                            Generated Article Output
                         </div>
-                        <div class="result" id="blogResult" style="background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; border: 1px solid var(--border); min-height: 140px; color: #cbd5e1; font-size: 0.92rem; white-space: pre-wrap; line-height: 1.6;">
-                            Your generated blog will appear here.
+                        <div id="blogResult" style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid var(--border); min-height: 150px; color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap;">
+                            Your generated blog post will appear here.
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
     </div>
 
+    <!-- API Logic -->
     <script>
         lucide.createIcons();
-    </script>
-    <script src="js/main.js"></script>
-    <script src="js/api.js"></script>
 
-    <script>
-        document.getElementById("generateBlog").addEventListener("click", async () => {
-            const notes = document.getElementById("blogNotes").value.trim();
+        document.getElementById("generateBtn").addEventListener("click", async () => {
+            const notesInput = document.getElementById("blogNotes");
+            const notes = notesInput.value.trim();
             const result = document.getElementById("blogResult");
 
             if (!notes) {
-                result.textContent = "Please enter your project notes first.";
+                result.textContent = "Please enter some project notes or a topic.";
                 return;
             }
 
-            result.innerHTML = '<span style="color: #3b82f6;">Generating blog...</span>';
+            result.innerHTML = '<span style="color: #3b82f6;">Agent is writing your blog...</span>';
 
             try {
-                const data = await generateBlog(notes);
-                result.textContent = data.blog || data.content || data.result || JSON.stringify(data, null, 2);
+                const response = await fetch("http://127.0.0.1:8000/api/blog", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ notes: notes })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.blog) {
+                    result.textContent = data.blog;
+                } else if (data.detail) {
+                    result.textContent = `Error: ${data.detail}`;
+                } else {
+                    result.textContent = JSON.stringify(data, null, 2);
+                }
             } catch (error) {
-                result.textContent = "Unable to connect to the backend. Make sure FastAPI is running on port 8000.";
+                console.error("API Error:", error);
+                result.textContent = `Error connecting to API (${error.message}). Ensure backend server is running at http://127.0.0.1:8000.`;
             }
         });
     </script>
-
 </body>
-
 </html>

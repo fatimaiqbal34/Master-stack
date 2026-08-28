@@ -4,177 +4,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Assistant | Master AI Stack</title>
-    <meta name="description" content="Conversational AI Assistant powered by Master AI Stack backend.">
+    <title>Chat Assistant | Fatima Iqbal</title>
     
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --card-bg: rgba(17, 24, 39, 0.8);
+            --border: rgba(255, 255, 255, 0.08);
+            --muted: #9ca3af;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --mono: 'Space Grotesk', monospace;
+            --display: 'Space Grotesk', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: rgba(3, 7, 18, 0.95);
+            border-right: 1px solid var(--border);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-item.active {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.12);
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .main-content {
+            padding: 36px 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .chat-box {
+            height: 420px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 8px;
+            margin-bottom: 20px;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .msg-user {
+            align-self: flex-end;
+            background: #2563eb;
+            color: #fff;
+            border-bottom-right-radius: 2px;
+        }
+
+        .msg-assistant {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 2px;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="app-container">
-
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <i data-lucide="cpu" style="color: #3b82f6;"></i>
                 <span>Master AI Stack</span>
             </div>
-
             <nav class="sidebar-nav">
-                <a href="index.html" class="nav-item">
-                    <i data-lucide="layout-dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="agents.html" class="nav-item active">
-                    <i data-lucide="bot"></i>
-                    <span>AI Agents</span>
-                </a>
-                <a href="stack.html" class="nav-item">
-                    <i data-lucide="layers"></i>
-                    <span>AI Stack</span>
-                </a>
-                <a href="projects.html" class="nav-item">
-                    <i data-lucide="folder-git-2"></i>
-                    <span>Projects</span>
-                </a>
-                <a href="skills.html" class="nav-item">
-                    <i data-lucide="sparkles"></i>
-                    <span>Skills</span>
-                </a>
-                <a href="about.html" class="nav-item">
-                    <i data-lucide="info"></i>
-                    <span>About</span>
-                </a>
+                <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                <a href="agents.html" class="nav-item active"><i data-lucide="bot"></i><span>AI Agents</span></a>
+                <a href="stack.html" class="nav-item"><i data-lucide="layers"></i><span>AI Stack</span></a>
+                <a href="projects.html" class="nav-item"><i data-lucide="folder-git-2"></i><span>Projects</span></a>
+                <a href="skills.html" class="nav-item"><i data-lucide="sparkles"></i><span>Skills</span></a>
+                <a href="about.html" class="nav-item"><i data-lucide="info"></i><span>About</span></a>
             </nav>
         </aside>
 
         <div class="main-wrapper">
-
             <header class="top-header">
                 <div style="font-weight: 600; font-size: 0.95rem; color: #94a3b8;">
                     Agents / <span style="color: #fff;">Chat Assistant</span>
                 </div>
-
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <span class="card-header-badge">
-                        <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%;"></span>
-                        Agent 03
-                    </span>
-                </div>
+                <span class="card-header-badge">Agent 01</span>
             </header>
 
             <main class="main-content">
-
                 <div style="margin-bottom: 24px;">
-                    <span style="color: #3b82f6; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;">Conversational Interface</span>
-                    <h1 style="font-family: var(--display); font-size: 2rem; margin-top: 4px; font-weight: 700;">AI Assistant 💬</h1>
-                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">
-                        Interactive chat session powered by Master AI Stack backend.
-                    </p>
+                    <h1 style="font-family: var(--display); font-size: 2rem; font-weight: 700; color: #fff; margin: 0;">Chat Assistant 💬</h1>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">Conversational AI Agent powered by Groq LLM.</p>
                 </div>
 
-                <div class="card" style="max-width: 850px; display: flex; flex-direction: column; height: 620px; padding: 0; overflow: hidden;">
-                    
-                    <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02);">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div style="width: 32px; height: 32px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #3b82f6;">
-                                <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; font-size: 0.95rem; color: #fff;">Interactive Session</div>
-                                <div style="font-size: 0.75rem; color: var(--muted);">Groq API Engine</div>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="chat-box" id="chatContainer">
+                        <div class="msg msg-assistant">Hello! How can I assist you today?</div>
                     </div>
 
-                    <div class="chat-messages" id="chatMessages" style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px;">
-                        <div class="message ai" style="align-self: flex-start; max-width: 80%; background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border-bottom-left-radius: 2px; color: #e2e8f0; font-size: 0.92rem; border: 1px solid var(--border);">
-                            Hello! How can I help you today?
-                        </div>
+                    <div style="display: flex; gap: 12px;">
+                        <input id="chatInput" type="text" placeholder="Type your message..." style="flex: 1; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none;">
+                        <button id="sendBtn" style="padding: 12px 24px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Send</button>
                     </div>
-
-                    <form class="chat-form" id="chatForm" style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 12px; background: rgba(0,0,0,0.1);">
-                        <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off" style="flex: 1; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none;">
-                        <button id="sendBtn" class="btn btn-primary" type="submit" style="padding: 12px 20px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-                            Send <i data-lucide="send" style="width: 16px; height: 16px;"></i>
-                        </button>
-                    </form>
-
                 </div>
-
             </main>
         </div>
     </div>
 
     <script>
         lucide.createIcons();
-    </script>
-    <script src="js/main.js"></script>
-    <script src="js/api.js"></script>
+        const chatHistory = [];
 
-    <script>
-        const chatForm = document.getElementById("chatForm");
-        const chatInput = document.getElementById("chatInput");
-        const chatMessages = document.getElementById("chatMessages");
-        const sendBtn = document.getElementById("sendBtn");
-
-        let history = [];
-
-        function addMessage(text, type) {
-            const message = document.createElement("div");
-            message.className = `message ${type}`;
-            
-            if (type === 'user') {
-                message.style.cssText = "align-self: flex-end; max-width: 80%; background: #3b82f6; padding: 12px 16px; border-radius: 12px; border-bottom-right-radius: 2px; color: #fff; font-size: 0.92rem;";
-            } else {
-                message.style.cssText = "align-self: flex-start; max-width: 80%; background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border-bottom-left-radius: 2px; color: #e2e8f0; font-size: 0.92rem; border: 1px solid var(--border); white-space: pre-wrap;";
-            }
-
-            message.textContent = text;
-            chatMessages.appendChild(message);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return message;
-        }
-
-        chatForm.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            const message = chatInput.value.trim();
+        async function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const container = document.getElementById("chatContainer");
+            const message = input.value.trim();
 
             if (!message) return;
 
-            addMessage(message, "user");
-            chatInput.value = "";
-            chatInput.disabled = true;
-            sendBtn.disabled = true;
+            // Render User Message
+            container.innerHTML += `<div class="msg msg-user">${message}</div>`;
+            input.value = "";
+            container.scrollTop = container.scrollHeight;
 
-            // Indicator loader
-            const loadingMsg = addMessage("Thinking...", "ai");
+            // Render Typing Indicator
+            const loadingId = "loading-" + Date.now();
+            container.innerHTML += `<div id="${loadingId}" class="msg msg-assistant" style="color: #60a5fa;">Thinking...</div>`;
+            container.scrollTop = container.scrollHeight;
 
             try {
-                const data = await askChat(message, history);
-                const reply = data.reply || data.answer || data.response || data.result || "I couldn't generate a response.";
+                const response = await fetch("http://127.0.0.1:8000/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: message, history: chatHistory })
+                });
 
-                // Remove temporary thinking text and update with actual reply
-                loadingMsg.textContent = reply;
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
 
-                // Push formatted history entries matching FastAPI ChatMessage model
-                history.push({ role: "user", content: message });
-                history.push({ role: "assistant", content: reply });
-
-            } catch (error) {
-                console.error("Chat API Error:", error);
-                loadingMsg.textContent = "Backend connection failed. Please check server terminal for error details.";
-                loadingMsg.style.borderColor = "#ef4444";
-                loadingMsg.style.color = "#fca5a5";
-            } finally {
-                chatInput.disabled = false;
-                sendBtn.disabled = false;
-                chatInput.focus();
+                if (response.ok && data.reply) {
+                    container.innerHTML += `<div class="msg msg-assistant">${data.reply}</div>`;
+                    chatHistory.push({ role: "user", content: message });
+                    chatHistory.push({ role: "assistant", content: data.reply });
+                } else {
+                    container.innerHTML += `<div class="msg msg-assistant" style="color: #ef4444;">Error: ${data.detail || "Failed to get reply."}</div>`;
+                }
+            } catch (err) {
+                document.getElementById(loadingId).remove();
+                container.innerHTML += `<div class="msg msg-assistant" style="color: #ef4444;">Error connecting to server.</div>`;
             }
+            container.scrollTop = container.scrollHeight;
+        }
+
+        document.getElementById("sendBtn").addEventListener("click", sendMessage);
+        document.getElementById("chatInput").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") sendMessage();
         });
     </script>
-
 </body>
-
 </html>
