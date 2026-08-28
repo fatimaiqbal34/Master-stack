@@ -58,13 +58,21 @@
             box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
         }
 
-        .card-image {
+        .card-img-container {
             width: 100%;
             height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
+            border-radius: 14px;
             margin-bottom: 20px;
+            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #0b0f19;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .badge-active {
@@ -192,8 +200,9 @@
                     <!-- Card 1: Chat Assistant -->
                     <div class="agent-card">
                         <div>
-                            <!-- Direct image link from local images folder -->
-                            <img src="images/chat.png" alt="Chat Assistant" class="card-image" onerror="this.src='images/chat.jpg';">
+                            <div class="card-img-container">
+                                <img src="images/chat-assistant.png" alt="Chat Assistant">
+                            </div>
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                                 <h3 style="font-size: 1.25rem; color: #fff; margin: 0;">Chat Assistant</h3>
@@ -213,8 +222,9 @@
                     <!-- Card 2: Blog Generator -->
                     <div class="agent-card">
                         <div>
-                            <!-- Direct image link from local images folder -->
-                            <img src="images/blog.png" alt="Blog Generator" class="card-image" onerror="this.src='images/blog.jpg';">
+                            <div class="card-img-container">
+                                <img src="images/blog-generator.png" alt="Blog Generator">
+                            </div>
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                                 <h3 style="font-size: 1.25rem; color: #fff; margin: 0;">Blog Generator</h3>
@@ -234,8 +244,9 @@
                     <!-- Card 3: Reasoning Agent -->
                     <div class="agent-card">
                         <div>
-                            <!-- Direct image link from local images folder -->
-                            <img src="images/reasoning.png" alt="Reasoning Agent" class="card-image" onerror="this.src='images/reasoning.jpg';">
+                            <div class="card-img-container">
+                                <img src="images/reasoning-agent.png" alt="Reasoning Agent">
+                            </div>
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                                 <h3 style="font-size: 1.25rem; color: #fff; margin: 0;">Reasoning Agent</h3>
