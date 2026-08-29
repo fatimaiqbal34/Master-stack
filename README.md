@@ -2,7 +2,7 @@
 
 A practical learning and implementation project that documents my journey from Python fundamentals to modern AI engineering concepts, including Machine Learning, Generative AI, RAG, MCP, APIs, and AI Agents.
 
-The goal of this project is to build a strong foundation in the AI engineering stack by learning concepts through hands-on implementations, scripts, experiments, and practical projects.
+The goal of this project is to build a strong foundation in AI engineering through hands-on implementations, experiments, scripts, and practical projects.
 
 ## 🌐 Live Project
 
@@ -11,13 +11,13 @@ https://fatimaiqbal34.github.io/Master-stack/index.html
 
 ## 🎯 What This Project Does
 
-Master AI Stack is a structured collection of practical implementations designed to demonstrate how different technologies fit together in a modern AI development workflow.
+Master AI Stack is a structured collection of practical implementations designed to demonstrate how different technologies fit together in a modern AI engineering workflow.
 
-Instead of learning AI concepts separately, the project connects them progressively:
+The project connects these technologies progressively:
 
 **Python → APIs → Machine Learning → Generative AI → RAG → MCP → AI Agents**
 
-The project includes practical scripts, experiments, and AI-focused projects developed while learning and applying these technologies.
+It includes practical exercises, scripts, experiments, and AI-focused projects developed while learning and applying these technologies.
 
 ## 👥 Who Is This For?
 
@@ -27,7 +27,7 @@ This project is useful for:
 * Beginners entering AI Software Engineering
 * Developers building a foundation in modern AI technologies
 * Recruiters and employers evaluating practical AI skills
-* Anyone interested in understanding the AI engineering stack
+* Anyone interested in understanding the modern AI engineering stack
 
 ## 🚀 AI Stack
 
@@ -49,11 +49,11 @@ Practical Machine Learning concepts, data processing, feature engineering, model
 
 ### 5. Generative AI
 
-Working with modern LLM-based applications and understanding how generative AI can be integrated into software.
+Exploring LLM-based applications and practical uses of Generative AI.
 
 ### 6. RAG
 
-Retrieval-Augmented Generation concepts for connecting AI models with external knowledge.
+Exploring Retrieval-Augmented Generation for connecting AI applications with external knowledge.
 
 ### 7. MCP
 
@@ -61,15 +61,15 @@ Exploring Model Context Protocol and tool-based AI workflows.
 
 ### 8. AI Agents
 
-Building systems where AI can reason about a task and interact with tools.
+Exploring AI systems that can reason about tasks and interact with tools.
 
 ### 9. Practical AI Projects
 
-Applying the concepts above to real-world AI projects and experiments.
+Applying the concepts above through practical projects and experiments.
 
 ## 🏗️ Architecture
 
-The learning architecture follows a progressive approach:
+The project follows a progressive learning architecture:
 
 ```text
                     Master AI Stack
@@ -103,8 +103,6 @@ Each layer builds on the concepts introduced in the previous layers.
 
 ## 🛠️ Technologies
 
-The project uses technologies and concepts including:
-
 * Python
 * Git & GitHub
 * APIs
@@ -121,7 +119,7 @@ The project uses technologies and concepts including:
 
 ## 📁 Project Structure
 
-The repository is organized into learning modules and practical implementations.
+The repository contains learning modules, practical exercises, scripts, and projects related to the AI engineering stack.
 
 ```text
 Master-AI-Stack/
@@ -132,42 +130,33 @@ Master-AI-Stack/
 │   ├── git/
 │   └── projects/
 │
-├── machine-learning/
-├── generative-ai/
-├── rag/
-├── mcp/
-├── agents/
-└── README.md
+├── README.md
+└── additional learning modules and projects
 ```
 
-> The exact folders may evolve as new modules and projects are added.
+The repository structure may evolve as new concepts and projects are added.
 
 ## ⚙️ Setup
 
 ### Prerequisites
 
-Make sure you have installed:
+Make sure you have:
 
 * Python 3.x
 * Git
 * VS Code
-* A GitHub account
+* GitHub account
 
 ### Clone the Repository
 
 ```bash
 git clone https://github.com/fatimaiqbal34/Master-AI-Stack.git
-```
-
-Move into the project:
-
-```bash
 cd Master-AI-Stack
 ```
 
 ### Create a Virtual Environment
 
-Windows:
+On Windows:
 
 ```bash
 python -m venv .venv
@@ -181,17 +170,17 @@ Activate it:
 
 ### Install Dependencies
 
-If a module contains a `requirements.txt` file:
+For modules that contain a `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Some modules may have their own dependencies or setup instructions.
+Some individual projects may have their own dependencies and setup instructions.
 
 ## ▶️ How to Use
 
-Navigate to the module or project you want to explore.
+Navigate to the relevant project or learning module.
 
 For example:
 
@@ -199,19 +188,19 @@ For example:
 cd 01-python
 ```
 
-Run the relevant Python script:
+Run a Python script using:
 
 ```bash
 python filename.py
 ```
 
-For projects with their own README or requirements, follow the instructions provided inside that project directory.
+For individual projects with their own setup instructions, follow the documentation inside that project.
 
 The live website provides an overview of the complete AI Stack and the projects included in the learning journey.
 
 ## 💡 Example Workflow
 
-A typical learning workflow in this project is:
+The project follows a practical learning workflow:
 
 ```text
 Learn a concept
@@ -227,22 +216,13 @@ Evaluate the result
 Document the learning
 ```
 
-This approach helps move from theoretical understanding toward practical AI engineering skills.
+This approach helps move from theoretical understanding toward practical AI engineering.
 
 ## 📊 V2 Evaluation Results
 
-The project was reviewed and improved through a second evaluation cycle.
+The project was reviewed and improved through a second iteration.
 
-### V2 Evaluation
-
-| Evaluation Area      |             V1 |             V2 |
-| -------------------- | -------------: | -------------: |
-| Overall Score        | [add V1 score] | [add V2 score] |
-| Functionality        |   [add result] |   [add result] |
-| Documentation        |   [add result] |   [add result] |
-| Project Organization |   [add result] |   [add result] |
-
-### Key Improvements
+### V2 Improvements
 
 The V2 iteration focused on:
 
@@ -250,9 +230,13 @@ The V2 iteration focused on:
 * Making the learning structure easier to understand
 * Organizing the AI stack into clear layers
 * Improving the presentation of practical projects
-* Making the project easier for another person to explore and reproduce
+* Making the project easier for another person to explore
+* Improving the overall clarity of the project
 
-> Replace the evaluation placeholders above with the actual V2 evaluation results before submission.
+**V2 Evaluation Result:**
+*Add the actual V2 evaluation score/result here before submission.*
+
+> Evaluation results should reflect the actual evaluation performed on the project. No unsupported or estimated scores are included.
 
 ## ⚠️ Limitations
 
@@ -261,42 +245,47 @@ This project has several limitations:
 1. Some implementations are learning-focused prototypes rather than production-ready systems.
 2. Not every module has the same level of complexity or completeness.
 3. Some AI features may require API keys or external services.
-4. Model outputs can vary depending on the model and prompt.
+4. AI-generated outputs can vary depending on the model, prompt, and available services.
 5. The project is continuously evolving as new AI technologies are learned and implemented.
 6. Some components may require additional configuration depending on the local environment.
 
 ## 🔮 Future Improvements
 
-Planned improvements include:
+Future improvements include:
 
 * Adding more production-ready AI applications
 * Expanding RAG and MCP implementations
 * Improving AI agent capabilities
 * Adding automated testing
 * Improving evaluation and benchmarking
-* Adding more detailed documentation for individual projects
+* Adding detailed documentation for individual projects
 * Deploying additional AI applications
-* Adding more real-world use cases
+* Adding more real-world AI use cases
 
 ## 🎥 Demo
 
-A live demonstration of the Master AI Stack project is available here:
-
 **Demo Video:**
-[Add your unlisted YouTube link here]
+*Add the unlisted YouTube link here after recording the demonstration.*
 
-The demonstration covers the project structure, live implementation, design decisions, evaluation, and limitations.
+The demonstration shows the project running live and explains:
+
+* What the project does
+* How the AI stack is organized
+* A live implementation
+* One important design decision
+* V2 evaluation
+* One limitation of the project
 
 ## 👩‍💻 Author
 
 **Fatima Iqbal**
 
 AI Software Engineer
+
 Interested in Artificial Intelligence, Machine Learning, Data Science, Generative AI, RAG, MCP, and AI Agents.
 
 ## ⭐ Project
 
-If you find this project useful, feel free to explore the repository and the live project website.
+Explore the live Master AI Stack project:
 
-**Live Website:**
 https://fatimaiqbal34.github.io/Master-stack/index.html
